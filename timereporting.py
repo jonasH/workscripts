@@ -60,9 +60,10 @@ def sum_time(timestamps):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--csv")
-    parser.add_argument("-p", "--projectnum")
-    parser.add_argument("-o", "--output")
+    parser.add_argument("-o", "--output", default="time_report.csv")
+    requiredNamed = parser.add_argument_group('required named arguments')
+    requiredNamed.add_argument("-c", "--csv", required=True)
+    requiredNamed.add_argument("-p", "--projectnum", required=True)
     args = parser.parse_args()
     timestamps = []
     dates = []
