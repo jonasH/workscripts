@@ -65,9 +65,10 @@ def remove_all_but(dirs, to_keep):
 
 def keep_configured_special(dirs, conf):
     for key in SPECIAL_KEYS:
-        v = conf[key]
-        if v in dirs:
-            remove_all_but(dirs, v)
+        if key in conf:
+            v = conf[key]
+            if v in dirs:
+                remove_all_but(dirs, v)
 
 
 def remove_unimportant(dirs):
